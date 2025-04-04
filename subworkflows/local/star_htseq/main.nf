@@ -40,7 +40,7 @@ workflow STAR_HTSEQ {
     // -------
     // Run HTSeq-count
     // -------
-    if (params.run_htseqzzzz) {
+    if (params.run_htseq) {
 
         HTSEQ_COUNT(
             STAR_ALIGN.out.bam_sorted,
