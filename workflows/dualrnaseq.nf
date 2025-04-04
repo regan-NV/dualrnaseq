@@ -132,6 +132,8 @@ workflow DUALRNASEQ {
             ch_reads,
             PREPARE_REFERENCE_FILES.out.host_pathogen_fasta_genome,
             PREPARE_REFERENCE_FILES.out.host_pathogen_genes_gff,
+            PREPARE_REFERENCE_FILES.out.annotations_host_htseq,
+            PREPARE_REFERENCE_FILES.out.annotations_pathogen_htseq
         )
     }
 

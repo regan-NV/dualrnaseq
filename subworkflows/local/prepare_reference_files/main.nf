@@ -80,7 +80,7 @@ workflow PREPARE_REFERENCE_FILES {
         .value(pathogenFeaturesList)
         .collect()
     // view
-    ch_gene_feature_pathogen.view {"pathogen features: $it"}
+    //ch_gene_feature_pathogen.view {"pathogen features: $it"}
 
 
     def hostFeaturesList = params.gene_feature_gff_to_create_transcriptome_host.split(',')
@@ -88,7 +88,7 @@ workflow PREPARE_REFERENCE_FILES {
         .value(hostFeaturesList)
         .collect()
     // view
-    ch_gene_feature_host.view {"host features: $it"}
+    //ch_gene_feature_host.view {"host features: $it"}
 
 
     def hts_pathogenFeaturesList = params.hts_pathogen_gff_gene_feature_to_count.split(',')
@@ -96,7 +96,7 @@ workflow PREPARE_REFERENCE_FILES {
         .value(hts_pathogenFeaturesList)
         .collect()
     // view
-    ch_gene_feature_pathogen_hts.view {"pathogen features hts: $it"}
+    //ch_gene_feature_pathogen_hts.view {"pathogen features hts: $it"}
 
 
     def hts_hostFeaturesList = params.hts_pathogen_gff_gene_feature_to_count.split(',')
@@ -104,7 +104,7 @@ workflow PREPARE_REFERENCE_FILES {
         .value(hts_hostFeaturesList)
         .collect()
     // view
-    ch_gene_feature_host_hts.view {"host features hts: $it"}
+    //ch_gene_feature_host_hts.view {"host features hts: $it"}
 
 
     // -------------------
@@ -342,7 +342,6 @@ workflow PREPARE_REFERENCE_FILES {
         // Replaces selected feature in 3rd colun with quant
         REPLACE_GENE_FEATURE_GFF_HOST_HTSEQ(
             ch_host_gff_unzipped,
-            //params.hts_host_gff_gene_feature_to_count, // needs to be updated
             ch_gene_feature_host_hts
         )
 
@@ -361,7 +360,6 @@ workflow PREPARE_REFERENCE_FILES {
         // Replaces selected feature in 3rd colun with quant
         REPLACE_GENE_FEATURE_GFF_PATHOGEN_HTSEQ(
             ch_pathogen_gff_unzipped,
-            //params.hts_pathogen_gff_gene_feature_to_count, // needs to be updated
             ch_gene_feature_pathogen_hts
         )
 
