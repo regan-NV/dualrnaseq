@@ -13,8 +13,6 @@ workflow STAR_HTSEQ {
     ch_versions = Channel.empty()
 
 
-    ch_host_pathogen_fasta_genome.view{ "contents of ch_host_pathogen_fasta_genome: ${it}" }
-    ch_host_pathogen_gff.view{ "contents of ch_host_pathogen_gff: ${it}" }
     // -------
     // Run create STAR index
     // -------
@@ -42,7 +40,7 @@ workflow STAR_HTSEQ {
     // -------
     // Run HTSeq-count
     // -------
-    if (params.run_htseq) {
+    if (params.run_htseqzzzz) {
 
         HTSEQ_COUNT(
             STAR_ALIGN.out.bam_sorted,
