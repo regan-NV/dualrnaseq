@@ -1,5 +1,5 @@
 include { STAR_GENOMEGENERATE } from '../../../modules/nf-core/star/genomegenerate/main'
-include { STAR_ALIGN } from '../../../modules/local/star_align_genome'
+include { STAR_ALIGN } from '../../../modules/local/star_align_genome/main'
 include { HTSEQ_COUNT } from '../../../modules/local/htseq_count'
 
 workflow STAR_HTSEQ {
@@ -12,6 +12,9 @@ workflow STAR_HTSEQ {
 
     ch_versions = Channel.empty()
 
+
+    ch_host_pathogen_fasta_genome.view{ "contents of ch_host_pathogen_fasta_genome: ${it}" }
+    ch_host_pathogen_gff.view{ "contents of ch_host_pathogen_gff: ${it}" }
     // -------
     // Run create STAR index
     // -------
@@ -21,7 +24,7 @@ workflow STAR_HTSEQ {
     )
     ch_versions = ch_versions.mix(STAR_GENOMEGENERATE.out.versions)
 
-
+    STAR_GENOMEGENERATE.out.index.view{ "contents of STAR_GENOMEGENERATE.out.index: ${it}" }
     // -------
     // Run STAR align
     // -------

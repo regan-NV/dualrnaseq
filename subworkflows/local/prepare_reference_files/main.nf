@@ -311,7 +311,11 @@ workflow PREPARE_REFERENCE_FILES {
     // end --> if(params.run_salmon_SA | params.run_salmon_AB) {
 
 
-    if (params.run_htseq) {
+    if (params.run_star) {
+
+        //---
+        // HTSeq
+        //---
 
         //----
         // Prepare the host files
@@ -355,7 +359,9 @@ workflow PREPARE_REFERENCE_FILES {
         // ---
         // Extracting the GFF annotations into a .tsv file for downstream analysis
         // ---
+    }
 
+    if (params.run_htseq) {
         //---
         // HTSeq
         //---

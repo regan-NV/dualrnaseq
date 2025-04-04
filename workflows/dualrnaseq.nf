@@ -126,7 +126,9 @@ workflow DUALRNASEQ {
     }
 
     // Run if STAR genome alignment
+    
     if (params.run_star) {
+        println "Running STAR alignment"
         STAR_ALIGNMENT(
             ch_reads,
             PREPARE_REFERENCE_FILES.out.host_pathogen_fasta_genome,
